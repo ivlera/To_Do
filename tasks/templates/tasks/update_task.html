@@ -8,7 +8,7 @@
 <style>
 
 	body{
-		background-color: #638CB8;
+		background-color: #DB7093;
 	}
 
 	input{
@@ -51,12 +51,14 @@
 	}
 
 </style>
+
 </head>
 <body>
 <h3>Изменить</h3>
 <form method="POST" action="">
     {% csrf_token %}
     {{ form }}
+
     <input type="submit" name="update task">
 </form>
 

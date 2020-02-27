@@ -5,7 +5,7 @@
 <style>
 
 	body{
-		background-color: #638CB8;
+		background-color: #DB7093;
 	}
 
 	input{
@@ -48,34 +48,35 @@
 	}
 
 </style>
+
 <head>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
-<div class="center-column">
+	<div class="center-column">
 
-	<form method="POST" action="/">
-		{% csrf_token %}
-		{{form.title}}
-		<input class="btn btn-info" type="submit" name="Create Task">
-	</form>
+		<form method="POST" action="/">
+			{% csrf_token %}
+			{{ form.title }}
+			<input class="btn btn-info" type="submit" name="Create Task">
+		</form>
 
-	<div class="todo-list">
+		<div class="todo-list">
 
-	{% for task in tasks %}
-		<div class="item-row">
-			<a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Изменить</a>
-			<a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Удалить</a>
+		{% for task in tasks %}
+			<div class="item-row">
+				<a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Изменить</a>
+				<a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Удалить</a>
 
-			{% if task.complete == True %}
-			<strike>{{task}}</strike>
-			{% else %}
-			<span>{{task}}</span>
-			{% endif %}
+				{% if task.complete == True %}
+				<strike>{{task}}</strike>
+				{% else %}
+				<span>{{task}}</span>
+				{% endif %}
+			</div>
+		{% endfor %}
 		</div>
-	{% endfor %}
 	</div>
-</div>
 </body>
 </html>
